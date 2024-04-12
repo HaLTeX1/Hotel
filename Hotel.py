@@ -1,6 +1,5 @@
 import keyboard
-import json
-
+import csv
 Hotelek = []
 with open("Hotels.json", "r", encoding='utf-8') as File:
     data = json.load(File)
@@ -15,14 +14,17 @@ print("3. Foglalás lemondása")
 print("4. Foglalási adatok lekérdezése")
 print("4. Foglalások listázása")
 print("\n")
-if keyboard.read_key() == '1':
+
+input_value = keyboard.read_key()
+
+
+if input_value == '1':
     print("\nFoglalás")
-
-if keyboard.read_key() == '2':
+elif input_value == '2':
     print("\nLemondás")
-
-if keyboard.read_key() == '3':
+elif input_value == '3':
     print("\nLekérdezés")
-
-if keyboard.read_key() == '4':
+elif input_value == '4':
     print("\nListázás")
+else:
+    print("\nÉrvénytelen válasz")
