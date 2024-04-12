@@ -6,7 +6,6 @@ with open("Hotels.json", "r", encoding='utf-8') as File:
     data = json.load(File)
     Hotelek.append(data)
 
-
 print(Hotelek)
 
 # Opciók listázása
