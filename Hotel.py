@@ -1,9 +1,9 @@
 import keyboard
-import csv
+import json
 Hotelek = []
-with open("Hotels.json", "r", encoding='utf-8') as File:
-    data = json.load(File)
-    Hotelek.append(data)
+with open("Hotels.json") as f:
+    data = json.load(f)
+
 
 print(Hotelek)
 
