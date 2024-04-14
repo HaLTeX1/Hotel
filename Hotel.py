@@ -1,11 +1,6 @@
 import keyboard
-import json
-Hotelek = []
-with open("Hotels.json") as f:
-    data = json.load(f)
+from Reservation import Reservation
 
-
-print(Hotelek)
 
 # Opciók listázása
 print("1. Foglalás")
@@ -19,7 +14,7 @@ input_value = keyboard.read_key()
 
 
 if input_value == '1':
-    print("\nFoglalás")
+    print()
 elif input_value == '2':
     print("\nLemondás")
 elif input_value == '3':
