@@ -1,7 +1,6 @@
 import keyboard
 from Reservation import Reservation
 
-
 # Opciók listázása
 print("1. Foglalás")
 print("2. Lemondás")
@@ -14,7 +13,8 @@ input_value = keyboard.read_key()
 
 
 if input_value == '1':
-    print()
+    reservation = Reservation() # Inicializáljuk a Reservation class-t
+    reservation.reservation_form() # Meghívjuk a Reservation class ResetvationForm-ját
 elif input_value == '2':
     print("\nLemondás")
 elif input_value == '3':

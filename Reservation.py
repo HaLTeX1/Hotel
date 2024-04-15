@@ -1,63 +1,38 @@
 import csv
-import keyboard
+import RoomDetails
 
 class Reservation:
 
-    def SingleRoom_Load(self):
-        with open("Assets/SingleRoom.csv", mode='r', newline='', encoding="latin-1") as file:
+    def load_rooms(self, file_path):
+        with open(file_path, mode='r', newline='', encoding="utf-8") as file:
             reader = csv.reader(file)
-            # Skip the header row
-            next(reader)
-            SingleRooms = list(reader)  # Beolvassuk az összes sort egy listába
-        return SingleRooms
+            next(reader)  # fejléc átugrása
+            rooms = list(reader)
+        return rooms
 
-    def DoubleRoam_Load(self):
-        with open("Assets/DoubleRoom.csv", mode='r', newline='', encoding="utf-8") as file:
-            reader = csv.reader(file)
-            # Skip the header row
-            next(reader)
-            DoubleRooms = list(reader)  # Beolvassuk az összes sort egy listába
-        return DoubleRooms
+    def reservationComplete(self, name, checkin, checkout):
+        self.name = name
+        self.checkin = checkin
+        self.checkout = checkout
+        pass
 
-    def reservationForm(self):
-        personCount = int(input("\nKérlek, add meg, hogy hány fővel utazol: "))
-        if personCount == 1:
-            SingleRooms = self.SingleRoom_Load()
-            print("\nA számodra javasolt szobák: ")
-            print("----------------------------------")
-            for i, row in enumerate(SingleRooms):
-                # A "Típus" mező az első oszlop (index 0)
-                room_type = row[0]
-                print(f"{i+1}. {room_type}")
+    def reservation_form(self):
+        person_count = int(input("\nKérlek, add meg, hogy hány fővel utazol: "))
+        file_path = "Assets/SingleRoom.csv" if person_count == 1 else "Assets/DoubleRoom.csv"
+        rooms = self.load_rooms(file_path)
 
-            # Wait for a key press and get the key code
-            key_code = keyboard.read_key()
-
-            # Convert the key code to an integer and subtract 1 to get the index of the selected room
-            selected_room = int(key_code) - 1
-
-            if 0 <= selected_room < len(SingleRooms):
-                print(f"\nKiválasztott szoba típusa: {SingleRooms[selected_room][0]}")
+        print("\nA számodra javasolt szobák: ")
+        print("----------------------------")
+        for i, room in enumerate(rooms):
+            room_type = room[0]  # A "Típus" mező az első oszlop
+            print(f"{i + 1}. {room_type}")
+        selected_room = input("\nKérem, válasszon szobát: ")
+        try:
+            selected_room = int(selected_room)
+            if 0 < selected_room <= len(rooms):
+                print(f"\nKiválasztott szoba típusa: {rooms[selected_room - 1][0]}")
+                name = input("Kérlek, add meg a teljes neved: ")
             else:
                 print("\nNem választottál érvényes szobát.")
-        if personCount == 2:
-            DoubleRooms = self.DoubleRoam_Load()
-            print("\nA számodra javasolt szobák: ")
-            for i, row in enumerate(DoubleRooms):
-                # A "Típus" mező az első oszlop (index 0)
-                room_type = row[0]
-                print(f"{i+1}. {room_type}")
-
-            # Wait for a key press and get the key code
-            key_code = keyboard.read_key()
-
-            # Convert the key code to an integer and subtract 1 to get the index of the selected room
-            selected_room = int(key_code) - 1
-
-            if 0 <= selected_room < len(DoubleRooms):
-                print(f"\nKiválasztott szoba típusa: {DoubleRooms[selected_room][0]}")
-            else:
-                print("\nNem választottál érvényes szobát.")
-
-reservation = Reservation()
-reservation.reservationForm()
+        except ValueError:
+            print("\nHibás bemenet. Kérem, adjon meg egy számot.")
