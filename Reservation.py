@@ -1,7 +1,15 @@
 import csv
-import RoomDetails
+import random  # ID generáláshoz szükséges
+import string  # ID generáláshoz szükséges
+
+# import RoomDetails
 
 class Reservation:
+
+    @staticmethod
+    def id_generate(size):
+        chars = string.ascii_uppercase + string.digits
+        return ''.join(random.choice(chars) for x in range(size))
 
     def load_rooms(self, file_path):
         with open(file_path, mode='r', newline='', encoding="utf-8") as file:
@@ -10,10 +18,18 @@ class Reservation:
             rooms = list(reader)
         return rooms
 
-    def reservationComplete(self, name, checkin, checkout):
+    def reservationComplete(self, id, room, name, checkin, checkout, birthdate):
+        self.id = id
+        self.room = room
         self.name = name
+        self.birthdate = birthdate
         self.checkin = checkin
         self.checkout = checkout
+        with open("BookingData.csv", mode="a", encoding="latin-1", newline="") as BookingData:
+            writer = csv.writer(BookingData)
+            writer.writerow([self.id, self.room, self.name, self.birthdate, self.checkin, self.checkout])
+        print("Sikeres foglalás!")
+        print(self.id, self.room, self.name, self.birthdate, self.checkin, self.checkout)
         pass
 
     def reservation_form(self):
@@ -31,8 +47,13 @@ class Reservation:
             selected_room = int(selected_room)
             if 0 < selected_room <= len(rooms):
                 print(f"\nKiválasztott szoba típusa: {rooms[selected_room - 1][0]}")
+                room = {rooms[selected_room - 1][0]}
                 name = input("Kérlek, add meg a teljes neved: ")
-                Reservation.reservationComplete()
+                birthdate = input("Kérlek, add meg a születési dátumod (ÉÉÉÉ-HH-NN): ")
+                checkin = input("Kérlek, add meg mikor szeretnél bejelentkezni (Óra : Perc): ")
+                checkout = input("Kérlek, add meg mikor szeretnél kijelentkezni (Óra : Perc): ")
+                id = self.id_generate(8)
+                Reservation.reservationComplete(self,id, room, name, checkin, checkout, birthdate)
             else:
                 print("\nNem választottál érvényes szobát.")
         except ValueError:
