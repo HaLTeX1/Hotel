@@ -32,6 +32,7 @@ class Reservation:
             if 0 < selected_room <= len(rooms):
                 print(f"\nKiválasztott szoba típusa: {rooms[selected_room - 1][0]}")
                 name = input("Kérlek, add meg a teljes neved: ")
+                Reservation.reservationComplete()
             else:
                 print("\nNem választottál érvényes szobát.")
         except ValueError:
