@@ -1,8 +1,32 @@
 [
-    {"Típus": "Magányos Menedék", "Összesen": 3, "Elérhető": 2},
-    {"Típus": "Egyedi Zuga", "Összesen": 3, "Elérhető": 1},
-    {"Típus": "Sziget Szoba", "Összesen": 4, "Elérhető": 4},
-    {"Típus": "Kuckó Kuckó", "Összesen": 2, "Elérhető": 2},
-    {"Típus": "Csendes Kuckó", "Összesen": 6, "Elérhető": 5},
-    {"Típus": "Intim Búvóhely", "Összesen": 2, "Elérhető": 1}
+    {
+        "Típus": "Magányos Menedék",
+        "Összesen": 3,
+        "Elérhető": 1
+    },
+    {
+        "Típus": "Egyedi Zuga",
+        "Összesen": 3,
+        "Elérhető": 2
+    },
+    {
+        "Típus": "Kuckó Kuckó",
+        "Összesen": 4,
+        "Elérhető": 4
+    },
+    {
+        "Típus": "Csendes Kuckó",
+        "Összesen": 2,
+        "Elérhető": 2
+    },
+    {
+        "Típus": "Két Személyes Sziget",
+        "Összesen": 6,
+        "Elérhető": 5
+    },
+    {
+        "Típus": "Intim Búvóhely",
+        "Összesen": 2,
+        "Elérhető": 0
+    }
 ]

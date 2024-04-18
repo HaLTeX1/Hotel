@@ -1,8 +1,32 @@
 [
-    {"Típus": "Párban Pihenő", "Összesen": 3, "Elérhető": 1},
-    {"Típus": "Két Szív Sátra", "Összesen": 3, "Elérhető": 2},
-    {"Típus": "Kettős Kényelem", "Összesen": 4, "Elérhető": 4},
-    {"Típus": "Összekötő Odú", "Összesen": 2, "Elérhető": 2},
-    {"Típus": "Két Személyes Sziget", "Összesen": 6, "Elérhető": 3},
-    {"Típus": "Kettesfogat kuckója", "Összesen": 1, "Elérhető": 1}
+    {
+        "Típus": "Párban Pihenő",
+        "Összesen": 3,
+        "Elérhető": 1
+    },
+    {
+        "Típus": "Két Szív Sátra",
+        "Összesen": 3,
+        "Elérhető": 2
+    },
+    {
+        "Típus": "Kettős Kényelem",
+        "Összesen": 4,
+        "Elérhető": 4
+    },
+    {
+        "Típus": "Összekötő Odú",
+        "Összesen": 2,
+        "Elérhető": 2
+    },
+    {
+        "Típus": "Két Személyes Sziget",
+        "Összesen": 6,
+        "Elérhető": 3
+    },
+    {
+        "Típus": "Kettesfogat kuckója",
+        "Összesen": 1,
+        "Elérhető": 1
+    }
 ]
