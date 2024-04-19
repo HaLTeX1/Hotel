@@ -3,7 +3,7 @@ import random  # ID generáláshoz szükséges
 import string  # ID generáláshoz szükséges
 import json
 
-# from RoomDetails import SingleRoom, DoubleRoom
+from RoomDetails import SingleRoom, DoubleRoom, generate_room_details
 
 class Reservation:
 
@@ -18,10 +18,12 @@ class Reservation:
 
         return rooms_data
 
-    def reservationComplete(self, id, room, check_in_date, check_out_date, name, checkin, checkout, birthdate, file_path):
+    def reservationComplete(self, id, room_type, room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate, file_path):
         reservation_data = {
             "ID": id,
-            "Room": room,
+            "Room": room_type,
+            "Room Number": room_number,
+            "Price": price,
             "Name": name,
             "Birthdate": birthdate,
             "Checkin Date": check_in_date,
@@ -39,17 +41,18 @@ class Reservation:
             json.dump(reservations, f, ensure_ascii=False, indent=4)
         print("Sikeres foglalás!")
         print(reservation_data)
-        # Kiválasztott szoba elérhető értékének csökkentése
+
+        # Szoba elérhetőségének csökkentése
         with open(file_path, mode='r', encoding="utf-8") as file:
             rooms_data = json.load(file)
 
         for room_data in rooms_data:
-            if room_data["Típus"] == room:
+            if room_data["Típus"] == room_type:
                 room_data["Elérhető"] -= 1
+
         # Frissített szobainformációk mentése
         with open(file_path, mode='w', encoding="utf-8") as file:
             json.dump(rooms_data, file, ensure_ascii=False, indent=4)
-
     def reservation_form(self):
         person_count = int(input("\nKérlek, add meg, hogy hány fővel utazol: "))
         file_path = "Assets/SingleRoom.json" if person_count == 1 else "Assets/DoubleRoom.json"
@@ -60,24 +63,27 @@ class Reservation:
         for i, room in enumerate(rooms, 1):
             room_type = room["Típus"]
             print(f"{i}. {room_type}")
-        selected_room = input("\nKérem, válasszon szobát: ")
+        selected_room = int(input("\nKérem, válasszon szobát: "))
         check_in_date = input("Kérlek, add meg az utazásod dátumát (ÉÉÉÉ-HH-NN): ")
         check_out_date = input("Kérlek, add meg a kijelentkezésed dátumát (ÉÉÉÉ-HH-NN): ")
         selected_room = int(selected_room)
         if 0 < selected_room <= len(rooms):
             selected_room_data = rooms[selected_room - 1]
             print(f"\nKiválasztott szoba típusa: {selected_room_data['Típus']}")
-            room = selected_room_data["Típus"]
+
+            # Az ár és a szobaszám generálása
+            room_details = generate_room_details()
+            room_number = room_details["SingleRoom_Number"] if person_count == 1 else room_details["DoubleRoom_Number"]
+            price = room_details["SingleRoom_Price"] if person_count == 1 else room_details["DoubleRoom_Price"]
+
             name = input("Kérlek, add meg a teljes neved: ")
             birthdate = input("Kérlek, add meg a születési dátumod (ÉÉÉÉ-HH-NN): ")
             checkin = input("Kérlek, add meg mikor szeretnél bejelentkezni (Óra : Perc): ")
             checkout = input("Kérlek, add meg mikor szeretnél kijelentkezni (Óra : Perc): ")
             id = self.id_generate(8)
 
-            self.reservationComplete(id, room,check_in_date,check_out_date, name, checkin, checkout, birthdate, file_path)
+            self.reservationComplete(id, selected_room_data['Típus'], room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate, file_path)
         else:
             print("\nNem választottál érvényes szobát.")
-
-
 reservation = Reservation() # Inicializáljuk a Reservation class-t
 reservation.reservation_form() # Meghívjuk a Reservation class ResetvationForm-ját

@@ -1,5 +1,6 @@
 import keyboard
 from Reservation import Reservation
+from DataQuery import Hotel
 
 # Opciók listázása
 print("1. Foglalás")
@@ -18,7 +19,8 @@ if input_value == '1':
 elif input_value == '2':
     print("\nLemondás")
 elif input_value == '3':
-    print("\nLekérdezés")
+    Hotel = Hotel()
+    Hotel.DataQuery()
 elif input_value == '4':
     print("\nListázás")
 else:
