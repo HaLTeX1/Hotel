@@ -18,5 +18,3 @@ class Hotel:
                 print(f"Születési dátum: {room_data['Birthdate']}")
                 print(f"Bejelentkezés dátuma: {room_data['Checkin Date']}, {room_data['Checkin']}")
                 print(f"Kijelentkezés dátuma: {room_data['Check-Out date']}, {room_data['Checkout']}")
-Hotel = Hotel()
-Hotel.DataQuery()

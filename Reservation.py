@@ -85,5 +85,3 @@ class Reservation:
             self.reservationComplete(id, selected_room_data['Típus'], room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate, file_path)
         else:
             print("\nNem választottál érvényes szobát.")
-reservation = Reservation() # Inicializáljuk a Reservation class-t
-reservation.reservation_form() # Meghívjuk a Reservation class ResetvationForm-ját
