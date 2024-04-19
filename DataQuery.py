@@ -18,3 +18,25 @@ class Hotel:
                 print(f"Születési dátum: {room_data['Birthdate']}")
                 print(f"Bejelentkezés dátuma: {room_data['Checkin Date']}, {room_data['Checkin']}")
                 print(f"Kijelentkezés dátuma: {room_data['Check-Out date']}, {room_data['Checkout']}")
+
+    @staticmethod
+    def DelReservation(id):
+        file_name = "BookingData.json"
+        # Fájl megnyitása olvasásra
+        with open(file_name, 'r') as file:
+            data = json.load(file)
+        # Adott ID-vel rendelkező bejegyzés keresése és törlése
+        for entry in data:
+            if entry["ID"] == id:
+                data.remove(entry)
+                print(f"A(z) {id} azonosítójú bejegyzés sikeresen törölve.")
+                break
+        else:
+            print(f"Nincs találat a(z) {id} azonosítójú bejegyzésre.")
+        # Fájl újraírása frissített adatokkal
+        with open(file_name, 'w') as file:
+            json.dump(data, file, indent=4)
+
+
+
+
