@@ -18,7 +18,7 @@ class Reservation:
 
         return rooms_data
 
-    def reservationComplete(self, id, room_type, room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate, file_path):
+    def reservationComplete(self, id, room_type, room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate, person_count, file_path):
         reservation_data = {
             "ID": id,
             "Room": room_type,
@@ -30,6 +30,7 @@ class Reservation:
             "Check-Out date": check_out_date,
             "Checkin": checkin,
             "Checkout": checkout,
+            "Person Count": person_count
         }
         try:
             with open("BookingData.json", mode="r", encoding="utf-8") as f:
@@ -82,6 +83,6 @@ class Reservation:
             checkout = input("Kérlek, add meg mikor szeretnél kijelentkezni (Óra : Perc): ")
             id = self.id_generate(8)
 
-            self.reservationComplete(id, selected_room_data['Típus'], room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate, file_path)
+            self.reservationComplete(id, selected_room_data['Típus'], room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate,person_count, file_path)
         else:
             print("\nNem választottál érvényes szobát.")
