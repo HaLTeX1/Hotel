@@ -37,6 +37,12 @@ class Hotel:
         with open(file_name, 'w') as file:
             json.dump(data, file, indent=4)
 
+    def listReservation(self):
+        file_name = "BookingData.json"
+        with open(file_name, mode="r", encoding="utf-8") as file:
+            data = json.load(file)
+        print(data)
+
 
 
 

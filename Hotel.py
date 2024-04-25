@@ -23,6 +23,7 @@ elif input_value == '3':
     Hotel = Hotel() # Inicializáljuk a Hotel class-t
     Hotel.DataQuery() # Meghívjuk a Foglalás lekérdezésére szolgáló mechanizmust
 elif input_value == '4':
-    print("\nListázás")
+    Hotel = Hotel()  # Inicializáljuk a Hotel class-t
+    Hotel.listReservation()
 else:
     print("\nÉrvénytelen válasz")
