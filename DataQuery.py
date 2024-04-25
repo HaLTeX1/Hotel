@@ -9,7 +9,8 @@ class Hotel:
 
         for room_data in rooms_data:
             if room_data["ID"] == ID_get:
-                print(" ")
+                print("Foglalás adatai")
+                print("-------------------------------------------")
                 print(f"Foglalás azonosítója: {room_data['ID']}")
                 print(f"Szoba típusa: {room_data['Room']}")
                 print(f"Szobaszám: {room_data['Room Number']}")
@@ -18,6 +19,8 @@ class Hotel:
                 print(f"Születési dátum: {room_data['Birthdate']}")
                 print(f"Bejelentkezés dátuma: {room_data['Checkin Date']}, {room_data['Checkin']}")
                 print(f"Kijelentkezés dátuma: {room_data['Check-Out date']}, {room_data['Checkout']}")
+            else:
+                print(f"Nem található {ID_get} azonosítóval foglalás!")
 
     @staticmethod
     def DelReservation(id):
@@ -42,7 +45,3 @@ class Hotel:
         with open(file_name, mode="r", encoding="utf-8") as file:
             data = json.load(file)
         print(data)
-
-
-
-

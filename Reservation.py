@@ -40,7 +40,7 @@ class Reservation:
         reservations.append(reservation_data)
         with open("BookingData.json", mode="w", encoding="utf-8") as f:
             json.dump(reservations, f, ensure_ascii=False, indent=4)
-        print("Sikeres foglalás!")
+        print(f"Sikeres foglalás! A foglalás azonosítója: {f['ID']}")
         print(reservation_data)
 
         # Szoba elérhetőségének csökkentése
