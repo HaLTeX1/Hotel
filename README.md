@@ -40,7 +40,7 @@ Foglalás törlését a foglaláskor, automatikusan generált ID segítségével
 
 ### Foglalás lekérdezése
 
-Egyéni foglalás lekérdezésére a **BookingData.json** féjlban tárolt ID segítségével van lehetőségünk. Az ID megadásával a szoftver kilistázza az összes vonatkozó foglalási adatot ami a megadott ID-hoz tartozik. 
+Egyéni foglalás lekérdezésére a **BookingData.json** fájlban tárolt ID segítségével van lehetőségünk. Az ID megadásával a szoftver kilistázza az összes vonatkozó foglalási adatot ami a megadott ID-hoz tartozik. 
 
 ### Összesített foglalási kimutatás
 
