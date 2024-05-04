@@ -39,10 +39,11 @@ A szobaszámok, illetve az árak generálását a **RoomDetails.py** fájl teszi
 A szoba árait minden esetben random generálja a szoftver két megadott érték között:
  - SingleRoom esetén : **25.000 Ft - 35.000 Ft**
  - DoubleRoom esetén: **31.200 Ft - 42.500 Ft**
+
  A szobaszámok generálása hasonló módon megoldott SingleRoom és DoubleRoom esetén más-más értékek között generálja le a szobaszámot a szoftver
  - SingleRoom esetén:  **1 - 100 között**
  - DoubleRoom esetén: **101 - 200 között**
-
+   
 ### Foglalás törlése
 
 Foglalás törlését a foglaláskor, automatikusan generált ID segítségével kezdeményezhetjük. Amennyiben a megadott ID szerepel a **BookingData.json** fájlban abban az esetben a foglalás törlése megtörténik, egyéb esetben a tranzakció meghiúsul. 
