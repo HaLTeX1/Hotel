@@ -71,3 +71,9 @@ SingleRoom.json
 [...]
 ]
 ```
+
+## Felhasznált állományok, modulok
+[Keyboard](https://pypi.org/project/keyboard/)\
+[JSON](https://docs.python.org/3/library/json.html)\
+[Random](https://docs.python.org/3/library/json.html)\
+[String](https://docs.python.org/3/library/string.html)
