@@ -2,7 +2,7 @@
 import random  # ID generáláshoz szükséges
 import string  # ID generáláshoz szükséges
 import json
-
+from datetime import datetime
 from RoomDetails import SingleRoom, DoubleRoom, generate_room_details
 
 class Reservation:
@@ -18,7 +18,7 @@ class Reservation:
 
         return rooms_data
 
-    def reservationComplete(self, id, room_type, room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate, person_count, file_path):
+    def reservationComplete(self, id, room_type, room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate, person_count, date, file_path):
         reservation_data = {
             "ID": id,
             "Room": room_type,
@@ -30,7 +30,8 @@ class Reservation:
             "Check-Out date": check_out_date,
             "Checkin": checkin,
             "Checkout": checkout,
-            "Person Count": person_count
+            "Person Count": person_count,
+            "Date": date
         }
         try:
             with open("BookingData.json", mode="r", encoding="utf-8") as f:
@@ -41,6 +42,7 @@ class Reservation:
         with open("BookingData.json", mode="w", encoding="utf-8") as f:
             json.dump(reservations, f, ensure_ascii=False, indent=4)
         print(reservation_data)
+        print("Kérjük, a foglalás azonosítóját jegyezze fel, késöbb ezzel lesz lehetősége ügyintézésre!")
         print(f"\nSikeres foglalás! A foglalás azonosítója: {reservation_data['ID']}")
 
         # Szoba elérhetőségének csökkentése
@@ -82,7 +84,10 @@ class Reservation:
             checkin = input("Kérlek, add meg mikor szeretnél bejelentkezni (Óra : Perc): ")
             checkout = input("Kérlek, add meg mikor szeretnél kijelentkezni (Óra : Perc): ")
             id = self.id_generate(8)
-
-            self.reservationComplete(id, selected_room_data['Típus'], room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate,person_count, file_path)
+            date =  datetime.today().strftime('%Y-%m-%d')
+            self.reservationComplete(id, selected_room_data['Típus'], room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate,person_count, date, file_path)
         else:
             print("\nNem választottál érvényes szobát.")
+
+reservation = Reservation() # Inicializáljuk a Reservation class-t
+reservation.reservation_form() # Meghívjuk a Reservation class ReservationForm-ját
