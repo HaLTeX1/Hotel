@@ -44,6 +44,7 @@ class Reservation:
         # print(reservation_data)
         print("Kérjük, a foglalás azonosítóját jegyezze fel, késöbb ezzel lesz lehetősége ügyintézésre!")
         print(f"\nSikeres foglalás! A foglalás azonosítója: {reservation_data['ID']}")
+        print(f"Összeg: {reservation_data['Price']} Ft, Szobaszám: {reservation_data['Room Number']}")
 
         # Szoba elérhetőségének csökkentése
         with open(file_path, mode='r', encoding="utf-8") as file:
