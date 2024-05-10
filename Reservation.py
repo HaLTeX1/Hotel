@@ -41,7 +41,7 @@ class Reservation:
         reservations.append(reservation_data)
         with open("BookingData.json", mode="w", encoding="utf-8") as f:
             json.dump(reservations, f, ensure_ascii=False, indent=4)
-        print(reservation_data)
+        # print(reservation_data)
         print("Kérjük, a foglalás azonosítóját jegyezze fel, késöbb ezzel lesz lehetősége ügyintézésre!")
         print(f"\nSikeres foglalás! A foglalás azonosítója: {reservation_data['ID']}")
 
@@ -88,6 +88,3 @@ class Reservation:
             self.reservationComplete(id, selected_room_data['Típus'], room_number, price, check_in_date, check_out_date, name, checkin, checkout, birthdate,person_count, date, file_path)
         else:
             print("\nNem választottál érvényes szobát.")
-
-reservation = Reservation() # Inicializáljuk a Reservation class-t
-reservation.reservation_form() # Meghívjuk a Reservation class ReservationForm-ját
