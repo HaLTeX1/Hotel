@@ -1,0 +1,5 @@
+Név: Réz Levente László
+Neptun kód: RTL7JM
+Szak: Mérnökinformatikus Alapképzés II. félév (MEIN-LA07)
+
+Gihub Repository: https://github.com/HaLTeX1/StaySync
