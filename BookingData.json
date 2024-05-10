@@ -1,1 +1,72 @@
-[]
+[
+    {
+        "ID": "90XIYJAN",
+        "Room": "Kettős Kényelem",
+        "Room Number": 129,
+        "Price": 36898,
+        "Name": "Lakatos Mária",
+        "Birthdate": "1975-07-03",
+        "Checkin Date": "2025-02-03",
+        "Check-Out date": "2025-02-05",
+        "Checkin": "10:25",
+        "Checkout": "16:00",
+        "Person Count": 2,
+        "Date": "2024-05-10"
+    },
+    {
+        "ID": "5DIYUQTJ",
+        "Room": "Magányos Menedék",
+        "Room Number": 52,
+        "Price": 32805,
+        "Name": "Nagy Ferenc",
+        "Birthdate": "2001-02-01",
+        "Checkin Date": "2024-05-14",
+        "Check-Out date": "2024-05-18",
+        "Checkin": "13:00",
+        "Checkout": "20:00",
+        "Person Count": 1,
+        "Date": "2024-05-10"
+    },
+    {
+        "ID": "IKBERK61",
+        "Room": "Párban Pihenő",
+        "Room Number": 176,
+        "Price": 39221,
+        "Name": "Maria Gruz",
+        "Birthdate": "2000-01-01",
+        "Checkin Date": "2024-06-03",
+        "Check-Out date": "2024-06-04",
+        "Checkin": "14:00",
+        "Checkout": "16:00",
+        "Person Count": 4,
+        "Date": "2024-05-10"
+    },
+    {
+        "ID": "5S4JW6JY",
+        "Room": "Két Személyes Sziget",
+        "Room Number": 156,
+        "Price": 35765,
+        "Name": "Nagy Péter",
+        "Birthdate": "1980-12-28",
+        "Checkin Date": "2024-08-04",
+        "Check-Out date": "2024-08-06",
+        "Checkin": "14:30",
+        "Checkout": "16:00",
+        "Person Count": 2,
+        "Date": "2024-05-10"
+    },
+    {
+        "ID": "79BJFVSJ",
+        "Room": "Két Szív Sátra",
+        "Room Number": 110,
+        "Price": 36248,
+        "Name": "Janek Gruz",
+        "Birthdate": "2003-01-21",
+        "Checkin Date": "2024-05-15",
+        "Check-Out date": "2024-05-16",
+        "Checkin": "10:20",
+        "Checkout": "13:00",
+        "Person Count": 3,
+        "Date": "2024-05-10"
+    }
+]
