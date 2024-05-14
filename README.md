@@ -87,7 +87,7 @@ Van lehetőségünk lekérdezni egy összesített kimutatást, ami az összes **
 
 ## JSON integráció
 
-Foglalás kezdeményezésekor a személyek száma (*PersonCount*) alapján jeleníti meg részünkre a szoftver az elérhető szobákat. A szobák adatait az *Assets/SingleRoom.json, Assets/DoubleRoom.json* tároljuk. 
+Foglalás kezdeményezésekor a személyek száma (*PersonCount*) alapján jeleníti meg részünkre a szoftver az elérhető szobákat. A szobák adatait az *Assets/SingleRoom.json, Assets/DoubleRoom.json* fájlokban tároljuk. 
 
 ```
 SingleRoom.json
